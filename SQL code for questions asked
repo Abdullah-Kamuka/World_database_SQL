@@ -1,0 +1,131 @@
+-- selecting schema
+use northwind;
+
+-- return customer information
+select* from customers;
+
+-- return customers country info
+select distinct country from customers;
+
+-- return customers country info
+select count(distinct country) from customers;
+
+-- return a particular piece of customer information
+select* from customers where country = 'Mexico';
+
+-- return a particular product
+select* from products where ProductID = '1';
+
+-- return a particular piece of customer information
+select* from customers where CustomerID = 1;
+
+-- return a particular product
+select* from products where Price > 100;
+
+-- return a particular orderdate range
+select* from orders where OrderDate > '1996-07-30';
+
+-- return a particular piece of customer information
+select* from customers where country = 'Germany' and City ='Berlin';
+
+-- return a particular piece of customer information
+select* from suppliers where country = 'japan' and City ='tokyo';
+
+-- return a particular piece of customer information
+select* from customers where city = 'Stuggart' or City ='Berlin';
+
+-- return a particular piece of customer information
+select* from customers where COUNTRY = 'Germany' or Country ='Spain';
+
+-- return a particular piece of customer information
+select* from customers order by Country;
+
+-- return a particular piece of customer information
+select* from customers order by Country desc;
+
+-- return a particular piece of customer information
+select* from customers order by Country desc;
+
+-- return a particular piece of customer information
+select PRODUCTNAME, PRICE FROM products order by PRICE desc;
+
+-- return a particular piece of customer information
+select* FROM customers order by country, CustomerName;
+
+-- return a particular piece of customer information
+select* FROM customers order by country ASC, CustomerName DESC;
+
+-- return a particular piece of customer information
+select* FROM customers limit 3;
+
+-- return a particular product info ordered by price and only top 5
+select* FROM products order by price limit 5;
+
+-- return a particular piece of customer information
+select* FROM customers where country = 'Germany'limit 3;
+
+-- return a particular product info ordered by price and only top 5
+select* FROM products where CategoryID = 1 limit 5;
+
+-- return a particular product info ordered by price and only top 5
+select MIN(price) as smallestprice from products;
+
+-- return a particular product info ordered by price and only top 5
+select max(price) as largestprice from products;
+
+-- return a particular product info ordered by price and only top 5
+select count(ProductID) from products;
+
+-- return average product price 
+select avg(Price) from products;
+
+-- return average product price 
+select sum(Quantity) from order_details;
+
+-- return average product price 
+select* FROM customers where CustomerName like 'A%';
+
+-- return average product price 
+select* FROM customers where CustomerName like '%a';
+
+-- return average product price 
+select* FROM customers where CustomerName like '%or%';
+
+-- return average product price 
+select* FROM customers where CustomerName like '_r%';
+
+-- return average product price 
+select* FROM customers where CustomerName like 'a__%';
+
+-- return average product price 
+select* FROM customers where ContactName like 'a%o';
+
+-- return average product price 
+select* FROM customers where Country in('Germany','France','UK');
+
+-- return average product price 
+select* FROM customers where Country not in('Germany','France','UK');
+
+-- return average product price 
+select* FROM customers where Country in(select country from suppliers);
+
+-- return average product price 
+select* FROM products where price between 10 and 20;
+
+-- return average product price 
+select* FROM products where price not between 10 and 20;
+
+-- return average product price 
+select* FROM products where price between 10 and 20 and CategoryID not in (1,2,3);
+
+-- return average product price 
+select* FROM products where ProductName between 'Carnarvon Tigers' and 'Mozzarella di Giovanni' order by ProductName;
+
+-- return average product price 
+select* FROM products where ProductName NOT between 'Carnarvon Tigers' and 'Mozzarella di Giovanni' order by ProductName;
+
+-- return average product price 
+select* FROM orders where OrderDate between '1996-07-01' and '1996-07-31';
+
+-- return average product price 
+select CustomerName AS Customer, ContactName AS "Contact Person" from customers;
